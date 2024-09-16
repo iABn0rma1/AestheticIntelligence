@@ -1,0 +1,131 @@
+@font-face {
+    font-family: AestheticAi;
+    src: url(/static/assets/fonts/WizardWorldSimplified-Kxr7.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    margin: 0 5%;
+}
+
+h1 {
+    font-family: "Playfair Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 450;
+    font-style: normal;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    padding: 10px 5%;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar img {
+    height: 60px;
+}
+
+.navbar a {
+    font-family: AestheticAI;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.drop-zone {
+    background-color: #1e1e1e;
+    color: #444;
+    font-size: 1.4rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px 0 20px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.drop-zone.disabled {
+    cursor: not-allowed;
+    background-color: #333;
+}
+
+.result-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.result-item {
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.accepted {
+    background-color: #2c6c2f;
+    color: #d4edda;
+}
+
+.rejected {
+    background-color: #6c2f2f;
+    color: #f8d7da;
+}
+
+.result-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.rate-limit {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#file-input {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar a {
+        margin-top: 10px;
+    }
+
+    .drop-zone {
+        max-width: 80%;
+    }
+}
