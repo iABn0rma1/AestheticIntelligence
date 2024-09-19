@@ -30,10 +30,14 @@
         <div class="drop-zone" id="drop-zone">Drop images here or click to select files</div>
         <input type="file" id="file-input" multiple placeholder="Drop images here or click to select files" />
         <p id="rate-limit-message" class="rate-limit"></p>
+
+        <!-- Spinner will be hidden by default -->
+        <div id="spinner" class="spinner" style="display: none;"></div>
+
         <div id="result-container" class="result-container"></div>
     </main>
 
-    <script src="/static/js/script.js"></script>
+    <script src="/static/js/script.js" defer></script>
 </body>
 
 </html>
