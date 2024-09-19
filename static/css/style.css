@@ -26,6 +26,10 @@ h1 {
     text-align: center;
 }
 
+p {
+    word-break: break-all;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
