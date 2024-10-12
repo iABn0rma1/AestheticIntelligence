@@ -134,6 +134,19 @@ async def read_index():
         logger.error(f"Error serving index file: {e}")
         return JSONResponse(content={"error": "Failed to load index page"}, status_code=500)
 
+@app.get("/about", response_class=HTMLResponse)
+async def read_index():
+    """Serve the index.html file."""
+    try:
+        about_file_path = os.path.join("static", "about.html")
+        if os.path.exists(about_file_path):
+            with open(about_file_path, "r") as f:
+                return HTMLResponse(content=f.read())
+        return JSONResponse(content={"error": "About file not found"}, status_code=404)
+    except Exception as e:
+        logger.error(f"Error serving index file: {e}")
+        return JSONResponse(content={"error": "Failed to load index page"}, status_code=500)
+
 def preprocess_image(img_path: str, target_size=(224, 224)):
     """Helper function to preprocess images for the NIMA MobileNet model."""
     try:

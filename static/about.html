@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta
+			name="description"
+			content="About this app - AI-powered image and video evaluation using deep learning models like Nima. Explore developer profiles, and frequently asked questions."
+		/>
+		<meta
+			name="keywords"
+			content="AI image evaluation, Neural Image Assessment, real-time feedback, deep learning, aesthetic scoring, developer profile, FAQs"
+		/>
+		<title>About Us</title>
+        <link rel="stylesheet" href="/static/css/style.css" />
+		<style>
+			@font-face {
+				font-family: AestheticAi;
+				src: url(/static/assets/fonts/WizardWorldSimplified-Kxr7.ttf);
+				font-display: swap;
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #121212;
+				color: #e0e0e0;
+				font-family: "Playfair Display", sans-serif;
+			}
+
+			main {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding-top: 100px;
+				margin: 2% 5%;
+				box-sizing: border-box;
+			}
+
+			h1,
+			h2,
+			h3 {
+				font-family: "Playfair Display", serif;
+				color: #007bff;
+				text-align: center;
+			}
+
+			h1 {
+				font-weight: 450;
+				font-size: 2.5rem;
+				margin-bottom: 20px;
+			}
+
+			h2 {
+				font-size: 2rem;
+				margin-bottom: 20px;
+			}
+
+			h3 {
+				font-size: 1.5rem;
+				margin-bottom: 10px;
+			}
+
+			p,
+			li {
+				word-break: break-word;
+				font-size: 1.2rem;
+				line-height: 1.6;
+			}
+
+			ul {
+				list-style-type: disc;
+				padding-left: 20px;
+				margin-bottom: 20px;
+			}
+
+			section {
+				background-color: #1f1f1f;
+                border-radius: 10px;
+				padding: 4vw;
+			}
+
+			strong {
+				color: #007bff;
+			}
+
+			.navbar {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #1f1f1f;
+				color: #e0e0e0;
+				padding: 10px 5%;
+				width: 100%;
+				box-sizing: border-box;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+			}
+
+			.navbar img {
+				height: 60px;
+			}
+
+			.navbar a {
+				font-family: AestheticAI;
+				color: #e0e0e0;
+				text-decoration: none;
+				font-size: 1.8rem;
+			}
+
+			.navbar a:hover {
+				text-decoration: underline;
+			}
+
+			#developer-profile {
+				margin-bottom: 60px;
+			}
+
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				justify-items: center;
+				gap: 20px;
+				width: 100%;
+				padding: 0 20px;
+				box-sizing: border-box;
+			}
+
+			.project-item {
+				border: 1px solid #444;
+				border-radius: 10px;
+				padding: 10px;
+				text-align: center;
+				width: 80%;
+				cursor: pointer;
+				background-color: #1e1e1e;
+				word-break: break-word;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+				transition: transform 0.3s ease;
+			}
+
+			.project-item img {
+				width: 100%;
+				height: 18vh;
+				border-radius: 10px;
+			}
+
+			.project-item:hover {
+				transform: scale(1.05);
+			}
+
+			/* App Details Section */
+			#app-details {
+				margin-bottom: 60px;
+				max-width: 1200px;
+				padding: 0 20px;
+			}
+
+			/* FAQ Section - Accordion Style */
+			#faq {
+				padding: 40px 20px;
+				width: 100%;
+				margin-bottom: 60px;
+				box-sizing: border-box;
+				border-radius: 10px;
+			}
+
+			/* Accordion Styling */
+			.accordion {
+				background-color: #121212;
+				color: #e0e0e0;
+				cursor: pointer;
+				padding: 15px;
+				margin: 10px 0 0;
+				width: 100%;
+				text-align: left;
+				outline: none;
+				border: 1px solid #007bff;
+				border-radius: 5px;
+				font-size: 1.3rem;
+				font-weight: 500;
+				transition: background-color 0.3s ease;
+			}
+
+			.accordion:hover {
+				background-color: #292929;
+			}
+
+			.accordion.active,
+			.accordion:focus {
+				background-color: #1e1e1e;
+			}
+
+			.accordion::after {
+				content: "\002B";
+				/* plus symbol */
+				color: #007bff;
+				font-weight: bold;
+				float: right;
+			}
+
+			.accordion.active::after {
+				content: "\2212";
+				/* minus symbol */
+			}
+
+			.panel {
+				padding: 0 15px;
+				background-color: #1f1f1f;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.2s ease-out;
+				margin: 0 0 10px;
+				border-radius: 0 0 5px 5px;
+			}
+
+			.panel p {
+				padding: 10px 0;
+				font-size: 1.2rem;
+				line-height: 1.6;
+			}
+
+			/* SEO Info Section */
+			#seo-info {
+				max-width: 1200px;
+				padding: 0 20px;
+			}
+
+			/* Media Queries for Responsiveness */
+			@media (max-width: 1024px) {
+				h1 {
+					font-size: 2rem;
+				}
+
+				.projects-grid {
+					grid-template-columns: repeat(3, 1fr);
+				}
+
+				.navbar img {
+					height: 50px;
+				}
+
+				.navbar a {
+					font-size: 1.6rem;
+				}
+			}
+
+			@media (max-width: 768px) {
+				main {
+					padding-top: 80px;
+					margin: 0 3%;
+				}
+
+				h1 {
+					font-size: 1.8rem;
+				}
+
+				.projects-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				.navbar img {
+					height: 45px;
+				}
+
+				.navbar a {
+					font-size: 1.4rem;
+				}
+
+				ul {
+					padding-left: 15px;
+				}
+			}
+
+			@media (max-width: 480px) {
+				h1 {
+					font-size: 1.6rem;
+				}
+
+				.projects-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.navbar img {
+					height: 40px;
+				}
+
+				.navbar a {
+					font-size: 1.2rem;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar">
+			<a href="/">
+				<img
+					src="/static/assets/imgs/logo.png"
+					alt="Aesthetic Intelligence"
+				/>
+			</a>
+			<a href="/">Home</a>
+			<a href="about">About</a>
+		</nav>
+
+		<main>
+			<section id="developer-profile">
+				<h2>Meet the Developer</h2>
+				<p>
+					Hi, I am Aman Barthwal an AI and Full-Stack enthusiast
+					passionate about technology and innovation. Over the years,
+					I’ve delved into various technologies, from machine learning
+					and AI research to full-stack development, constantly
+					exploring new tools and frameworks that can push the
+					boundaries of what’s possible. I am extremely fascinated by
+					the merging of technology and creativity, which has driven
+					me to explore fields like AI research, where I’ve
+					contributed to designing new AI tools, and UI/UX design,
+					which helps me create visually appealing and user-friendly
+					applications. My tech journey is fueled by curiosity, and
+					I'm always eager to embrace new challenges and expand my
+					expertise.
+				</p>
+				<div class="projects-grid">
+					<div
+						class="project-item"
+						onclick="redirecTo('https://fast-api-steam-scraper.vercel.app')"
+					>
+						<img
+							src="https://i-abnormal.netlify.app/images/steam.webp"
+							alt="Epic Steam Deals"
+						/>
+						<h3>Epic Steam Deals</h3>
+					</div>
+					<div
+						class="project-item"
+						onclick="redirecTo('https://iablogs.vercel.app')"
+					>
+						<img
+							src="https://aeolidia.com/wp-content/uploads/2015/03/no-blog-body-615x410.jpg"
+							alt="inkSpire"
+						/>
+						<h3>inkSpire</h3>
+					</div>
+					<div
+						class="project-item"
+						onclick="redirecTo('https://tags-smrzr.onrender.com')"
+					>
+						<img
+							src="https://img.freepik.com/free-photo/improvement-summary-personal-development-workflow_53876-132263.jpg?w=2000&t=st=1728773270~exp=1728773870~hmac=324e1e87f8c551b5845e5b8b37b3acd50ccd8845efdcbd1f7864c5ee03256998"
+							alt="Article Summarizer"
+						/>
+						<h3>Article Summarizer</h3>
+					</div>
+					<div
+						class="project-item"
+						onclick="redirecTo('https://wallpaper-hub.vercel.app')"
+					>
+						<img
+							src="https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-d-render-of-a-website-builder-for-a-graphic-design-studio-image_3761809.jpg"
+							alt="Wallpaper Hub"
+						/>
+						<h3>Wallpaper Hub</h3>
+					</div>
+					<div
+						class="project-item"
+						onclick="redirecTo('https://the-pensieve.netlify.app')"
+					>
+						<img
+							src="https://github.com/iABn0rma1/The.Pensieve-Project/raw/main/assets/img/pensieve.jpeg"
+							alt="The Penseive"
+						/>
+						<h3>The Penseive</h3>
+					</div>
+					<div
+						class="project-item"
+						onclick="redirecTo('https://i-abnormal.netlify.app/')"
+					>
+						<img
+							src="https://img.freepik.com/free-vector/businessman-choosing-options-computer_1262-19222.jpg?t=st=1728773495~exp=1728777095~hmac=10fb67b40b67ed797554dba19969c48b5a24725aaa45a39f11abe493a25ae6c0&w=1800"
+							alt="Portfolio"
+						/>
+						<h3>Portfolio</h3>
+					</div>
+				</div>
+			</section>
+
+			<section id="faqs">
+				<h2>Frequently Asked Questions (FAQs)</h2>
+
+				<button class="accordion">
+					What is Aesthetic Intelligence?
+				</button>
+				<div class="panel">
+					<p>
+						An advanced app that helps users evaluate the quality of
+						images. Aesthetic intelligence assess the aesthetic
+						appeal, providing instant feedback on how good the
+						content looks based on specific criteria.
+					</p>
+				</div>
+
+				<button class="accordion">
+					What is the purpose of Aesthetic Intelligence?
+				</button>
+				<div class="panel">
+					<p>
+						The purpose of Aesthetic Intelligence is to assist
+						content creators, photographers, and designers in
+						improving their visual media. By providing an AI-driven
+						evaluation, users can understand what makes their images
+						and videos more appealing and make informed decisions
+						about editing or selecting their content.
+					</p>
+				</div>
+
+				<button class="accordion">
+					What scoring scale does Aesthetic Intelligence use?
+				</button>
+				<div class="panel">
+					<p>
+						Aesthetic Intelligence uses a scoring scale from 1 to
+						10. A score of 1 indicates poor quality, while a score
+						of 10 represents exceptional quality. This scale may
+						help you easily understand how your media ranks in terms
+						of visual appeal.
+					</p>
+				</div>
+
+				<button class="accordion">
+					How are aesthetic scores evaluated?
+				</button>
+				<div class="panel">
+					<p>
+						The score is evaluated based on a combination of
+						different aesthetic qualities. The AI analyzes the
+						uploaded media for elements such as how well the colors
+						work together, the composition of the image, the clarity
+						of the subject, and the overall contrast. Each of these
+						aspects contributes to the final score.
+					</p>
+				</div>
+
+				<button class="accordion">
+					What factors affect the aesthetics of an image?
+				</button>
+				<div class="panel">
+					<p>
+						The score assigned to an image is based on several key
+						elements:
+					</p>
+					<ul>
+						<li>
+							<strong>Composition:</strong> How the visual
+							elements are arranged.
+						</li>
+						<li>
+							<strong>Color Balance:</strong> The harmony and
+							contrast of colors used in the media. of a photo.
+						</li>
+						<li>
+							<strong>Contrast:</strong> The difference between
+							the light and dark areas in the media.
+						</li>
+						<li>
+							<strong>Subject Matter:</strong> An interesting
+							subject can significantly influence the overall
+							score.
+						</li>
+					</ul>
+				</div>
+
+				<button class="accordion">
+					What types of media can I upload?
+				</button>
+				<div class="panel">
+					<p>
+						You can upload various types of media, including both
+						images and videos. Aesthetic Intelligence supports image
+						file formats such as JPEG, PNG, and GIF.
+					</p>
+				</div>
+
+				<button class="accordion">
+					What is the upload limit for Aesthetic Intelligence?
+				</button>
+				<div class="panel">
+					<p>
+						The app enforces an upload limit per session to maintain
+						optimal performance. This ensures that the server can
+						handle the requests effectively without delays.
+					</p>
+				</div>
+
+				<button class="accordion">
+					How long does it take to get a score?
+				</button>
+				<div class="panel">
+					<p>
+						Scoring is provided almost instantly. The app is
+						designed to quickly analyze the uploaded media using AI
+						technology. However, the exact time may vary slightly
+						depending on the file size and the number of uploads.
+						Generally, you can expect rapid feedback to help you
+						improve your content.
+					</p>
+				</div>
+
+				<button class="accordion">How safe is my data?</button>
+				<div class="panel">
+					<p>
+						Your privacy and security are our top priorities.
+						Uploaded files are processed in real-time and are not
+						stored permanently on our servers. This means your
+						content is not kept long-term, ensuring confidentiality.
+						Furthermore, all interactions with the app are protected
+						by secure technology.
+					</p>
+				</div>
+
+				<button class="accordion">
+					Is there a mobile version of this app?
+				</button>
+				<div class="panel">
+					<p>
+						No, Aesthetic Intelligence is not a standalone mobile
+						app available for download. However, you can use your
+						browser's <strong>"Add to Home Screen"</strong> feature.
+						This will create a shortcut on your home screen,
+						allowing you to launch Aesthetic Intelligence quickly
+						and easily, just like a regular app
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<script>
+			function redirecTo(address) {
+				location.replace(address);
+			}
+
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function () {
+					// Close all other panels
+					for (var j = 0; j < acc.length; j++) {
+						if (acc[j] !== this) {
+							acc[j].classList.remove("active");
+							acc[j].nextElementSibling.style.maxHeight = null;
+							acc[j].nextElementSibling.style.border = "none";
+						}
+					}
+
+					// Toggle the current panel
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+
+					if (panel.style.maxHeight) {
+						panel.style.maxHeight = null;
+						panel.style.border = "none";
+					} else {
+						panel.style.maxHeight = panel.scrollHeight + "px";
+						panel.style.borderLeft = "1px solid #007bff";
+						panel.style.borderRight = "1px solid #007bff";
+						panel.style.borderBottom = "1px solid #007bff";
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

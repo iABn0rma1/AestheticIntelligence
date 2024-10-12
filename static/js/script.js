@@ -79,18 +79,23 @@ async function handleFiles(files) {
         setTimeout(() => {
             dropZone.classList.remove('disabled');
             fileInput.disabled = false;
+            // Clear the rate limit message when the time is up
+            rateLimitMessage.textContent = '';
         }, rateLimitInterval);
     }
 }
 
 function updateRateLimitMessage() {
     const remainingTime = Math.ceil((rateLimitEndTime - Date.now()) / 1000);
-    if (remainingTime > 0) {
+    if (remainingTime > 1) {
         rateLimitMessage.textContent = `Please wait ${remainingTime} seconds before uploading again.`;
+    } else {
+        rateLimitMessage.textContent = ''; // Clear message when time is up
     }
 }
 
 setInterval(updateRateLimitMessage, 1000);
+
 function displayResults(results) {
     resultContainer.innerHTML = '';
     results.forEach(result => {
