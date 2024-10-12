@@ -10,7 +10,7 @@ import time
 import threading
 import logging
 from collections import defaultdict
-import tensorflow as tf
+from tensorflow.keras import applications as apps
 from tensorflow.keras.preprocessing import image as keras_image
 from keras.applications.mobilenet import preprocess_input
 from keras.models import Model
@@ -62,7 +62,7 @@ def load_nima_model_lazy():
     try:
         if nima_model is None:
             logger.info("Loading NIMA model...")
-            base_model = tf.keras.applications.MobileNet(input_shape=(None, None, 3), alpha=1, include_top=False, pooling='avg', weights=None)
+            base_model = apps.MobileNet(input_shape=(None, None, 3), alpha=1, include_top=False, pooling='avg', weights=None)
             x = Dropout(0.75)(base_model.output)
             x = Dense(10, activation='softmax')(x)
             model = Model(base_model.input, x)
@@ -179,6 +179,9 @@ async def curate_images(request: Request, files: List[UploadFile] = File(...)):
     
     last_upload_time[client_ip] = current_time
     results = []
+
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.makedirs(UPLOAD_FOLDER)
 
     for file in files:
         try:
