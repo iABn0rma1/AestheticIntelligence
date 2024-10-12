@@ -65,6 +65,11 @@ p {
     text-decoration: underline;
 }
 
+.nav-links {
+    display: flex;
+    gap: 8vw;
+}
+
 .drop-zone {
     background-color: #1e1e1e;
     color: #444;

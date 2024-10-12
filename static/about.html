@@ -15,7 +15,10 @@
 			content="AI image evaluation, Neural Image Assessment, real-time feedback, deep learning, aesthetic scoring, developer profile, FAQs"
 		/>
 		<title>About Us</title>
-        <link rel="stylesheet" href="/static/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="/static/css/style.css"
+		/>
 		<style>
 			@font-face {
 				font-family: AestheticAi;
@@ -42,7 +45,8 @@
 
 			h1,
 			h2,
-			h3 {
+			h3,
+			h4 {
 				font-family: "Playfair Display", serif;
 				color: #007bff;
 				text-align: center;
@@ -61,6 +65,11 @@
 
 			h3 {
 				font-size: 1.5rem;
+				margin-bottom: 15px;
+			}
+
+			h4 {
+				font-size: 1.125rem;
 				margin-bottom: 10px;
 			}
 
@@ -79,7 +88,7 @@
 
 			section {
 				background-color: #1f1f1f;
-                border-radius: 10px;
+				border-radius: 10px;
 				padding: 4vw;
 			}
 
@@ -121,6 +130,17 @@
 				margin-bottom: 60px;
 			}
 
+			.dev-flex {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 30px;
+			}
+
+			.dev-image img {
+				width: 100%;
+				height: auto;
+			}
+
 			.projects-grid {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
@@ -145,9 +165,10 @@
 			}
 
 			.project-item img {
-				width: 100%;
-				height: 18vh;
-				border-radius: 10px;
+				width: 100%; /* Set image to take full width of the container */
+				height: auto; /* Maintain aspect ratio */
+				aspect-ratio: 16 / 9; /* Set aspect ratio to 16:9 */
+				object-fit: cover;
 			}
 
 			.project-item:hover {
@@ -298,35 +319,47 @@
 	</head>
 
 	<body>
-		<nav class="navbar">
-			<a href="/">
-				<img
-					src="/static/assets/imgs/logo.png"
-					alt="Aesthetic Intelligence"
-				/>
-			</a>
-			<a href="/">Home</a>
-			<a href="about">About</a>
-		</nav>
+        <nav class="navbar">
+            <a href="/">
+                <img src="/static/assets/imgs/logo.png" alt="Aesthetic Intelligence" />
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="about">About</a>
+            </div>
+        </nav>        
 
 		<main>
 			<section id="developer-profile">
-				<h2>Meet the Developer</h2>
-				<p>
-					Hi, I am Aman Barthwal an AI and Full-Stack enthusiast
-					passionate about technology and innovation. Over the years,
-					I’ve delved into various technologies, from machine learning
-					and AI research to full-stack development, constantly
-					exploring new tools and frameworks that can push the
-					boundaries of what’s possible. I am extremely fascinated by
-					the merging of technology and creativity, which has driven
-					me to explore fields like AI research, where I’ve
-					contributed to designing new AI tools, and UI/UX design,
-					which helps me create visually appealing and user-friendly
-					applications. My tech journey is fueled by curiosity, and
-					I'm always eager to embrace new challenges and expand my
-					expertise.
-				</p>
+				<div class="dev-flex">
+					<div>
+						<h2>Meet the Developer</h2>
+						<p>
+							Hi, I am Aman Barthwal an AI and Full-Stack
+							enthusiast passionate about technology and
+							innovation. Over the years, I’ve delved into various
+							technologies, from machine learning and AI research
+							to full-stack development, constantly exploring new
+							tools and frameworks that can push the boundaries of
+							what’s possible. I am extremely fascinated by the
+							merging of technology and creativity, which has
+							driven me to explore fields like AI research, where
+							I’ve contributed to designing new AI tools, and
+							UI/UX design, which helps me create visually
+							appealing and user-friendly applications. My tech
+							journey is fueled by curiosity, and I'm always eager
+							to embrace new challenges and expand my expertise.
+						</p>
+					</div>
+					<div class="dev-image">
+						<img
+							src="/static/assets/imgs/dev.gif"
+							alt="Aman Barthwal"
+						/>
+					</div>
+				</div>
+
+				<h3>Find More From Me</h3>
 				<div class="projects-grid">
 					<div
 						class="project-item"
@@ -336,7 +369,7 @@
 							src="https://i-abnormal.netlify.app/images/steam.webp"
 							alt="Epic Steam Deals"
 						/>
-						<h3>Epic Steam Deals</h3>
+						<h4>Epic Steam Deals</h4>
 					</div>
 					<div
 						class="project-item"
@@ -346,7 +379,7 @@
 							src="https://aeolidia.com/wp-content/uploads/2015/03/no-blog-body-615x410.jpg"
 							alt="inkSpire"
 						/>
-						<h3>inkSpire</h3>
+						<h4>inkSpire</h4>
 					</div>
 					<div
 						class="project-item"
@@ -356,7 +389,7 @@
 							src="https://img.freepik.com/free-photo/improvement-summary-personal-development-workflow_53876-132263.jpg?w=2000&t=st=1728773270~exp=1728773870~hmac=324e1e87f8c551b5845e5b8b37b3acd50ccd8845efdcbd1f7864c5ee03256998"
 							alt="Article Summarizer"
 						/>
-						<h3>Article Summarizer</h3>
+						<h4>Article Summarizer</h4>
 					</div>
 					<div
 						class="project-item"
@@ -366,7 +399,7 @@
 							src="https://png.pngtree.com/thumb_back/fh260/background/20230704/pngtree-d-render-of-a-website-builder-for-a-graphic-design-studio-image_3761809.jpg"
 							alt="Wallpaper Hub"
 						/>
-						<h3>Wallpaper Hub</h3>
+						<h4>Wallpaper Hub</h4>
 					</div>
 					<div
 						class="project-item"
@@ -376,7 +409,7 @@
 							src="https://github.com/iABn0rma1/The.Pensieve-Project/raw/main/assets/img/pensieve.jpeg"
 							alt="The Penseive"
 						/>
-						<h3>The Penseive</h3>
+						<h4>The Penseive</h4>
 					</div>
 					<div
 						class="project-item"
@@ -386,7 +419,7 @@
 							src="https://img.freepik.com/free-vector/businessman-choosing-options-computer_1262-19222.jpg?t=st=1728773495~exp=1728777095~hmac=10fb67b40b67ed797554dba19969c48b5a24725aaa45a39f11abe493a25ae6c0&w=1800"
 							alt="Portfolio"
 						/>
-						<h3>Portfolio</h3>
+						<h4>Portfolio</h4>
 					</div>
 				</div>
 			</section>
