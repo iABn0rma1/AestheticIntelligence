@@ -97,7 +97,6 @@ cleanup_thread.start()
 # Middleware to log each request
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
-    clear_upload_folder()  # Clear the uploads folder on each request
     response = await call_next(request)
     return response
 
