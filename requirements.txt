@@ -6,7 +6,7 @@ uvicorn==0.30.6
 python-multipart==0.0.9
 keras==3.3.3
 keras_applications==1.0.8
-numpy==1.24.4
 path.py==12.5.0
 tensorflow==2.16.1
-tensorrt
+aiofiles==24.1.0
+asyncio==3.4.3
